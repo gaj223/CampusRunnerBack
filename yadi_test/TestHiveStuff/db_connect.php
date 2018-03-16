@@ -32,6 +32,7 @@ class DB_CONNECT {
     {
        echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
+    else{echo"Successful connection"}
  
         // Selecing database
         // $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());

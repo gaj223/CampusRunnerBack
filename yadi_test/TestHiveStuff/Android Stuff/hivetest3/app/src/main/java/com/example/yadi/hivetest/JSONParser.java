@@ -48,6 +48,7 @@ public class JSONParser {
 
     static InputStream is = null;
     static JSONObject postDataParams = null;
+    static JSONObject responseParm = null;
     static String json = "";
     HttpURLConnection conn;
 
@@ -63,12 +64,12 @@ public class JSONParser {
 
         // Making HTTP request
 
-        try{
+        try {
 
 //            URL url = new URL("http://13.59.142.19/CampusRunnerBack/api.php/users");
             //turn strint to url
             URL url = new URL("http://13.59.142.19/CampusRunnerBack/yadi_test/TestHiveStuff/create_product.php");
-            Log.e("url","Url: "+url);
+            Log.e("url", "Url: " + url);
             postDataParams = new JSONObject();
 
 
@@ -81,7 +82,7 @@ public class JSONParser {
 //build parameters
             Set keys = params.keySet();
 
-            for (Iterator i = keys.iterator();  i.hasNext(); ) {
+            for (Iterator i = keys.iterator(); i.hasNext(); ) {
                 String key = (String) i.next();
                 String value = (String) params.get(key);
                 postDataParams.put(key, value);
@@ -96,76 +97,86 @@ public class JSONParser {
             //new
             conn.setChunkedStreamingMode(0);
             conn.setRequestProperty("Accept-Encoding", "identity");
+            conn.setRequestProperty("content-type", "application/json");
 
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
-            Log.e("params",postDataParams.toString());
+            Log.e("params", postDataParams.toString());
 
 
             writer.flush();
             writer.close();
             os.close();
 
-            int responseCode=conn.getResponseCode();
-            Log.e("responseError", ""+responseCode);
+            int responseCode = conn.getResponseCode();
+            Log.e("responseError", "" + responseCode);
 
-           // if (responseCode == HttpsURLConnection.HTTP_OK) {
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
 
-                BufferedReader in=new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                StringBuffer sb = new StringBuffer("");
-                String line="";
+//                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//                StringBuffer sb = new StringBuffer("");
+//                String line = "";
+//
+//                while ((line = in.readLine()) != null) {
+//
+//                    sb.append(line);
+//                    Log.e("Response lines: ", "> " + line);
+//                    break;
+//                }
+//
+//                in.close();
+//                json = sb.toString();
+//                Log.d("buffer", json);
 
-                while((line = in.readLine()) != null) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(
+                        conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                reader.close();
+                json = sb.toString();
 
-                    sb.append(line);
-                    Log.e("Response lines: ", "> " + line);
-                    break;
+                Log.e("in json string", "Json:  " + json);
+                try {
+                    responseParm = new JSONObject(json);
+                }
+                catch(JSONException e){
+
+                    Log.e("JSON Parser", "Error parsing data " + e.toString());
+
+
                 }
 
-                in.close();
-                String test= sb.toString();
-                JSONObject json = new JSONObject(test);
-            Log.e("response related", json.getString("status"));
-            Log.e("response related2", test);
+                return responseParm;
+            } else {
+//                return new String("false : "+responseCode);
+                Log.e("responseError", "" + responseCode);
 
-            return json;
-
-            } catch (ProtocolException e1) {
-            Log.e("protocolexception", e1.getMessage());
-
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (JSONException e1) {
-            e1.printStackTrace();
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-        //  else {
-////                return new String("false : "+responseCode);
-//                Log.e("responseError", ""+responseCode);
-
-//                postDataParams.getString("status");
-//           // }
-        //}
-      //  catch(Exception e){
-//            String error = new String("Exception: " + e.getMessage());
-  //          Log.e("Connection error", "Exception" + e.getMessage());
-  //          Log.e("Connection Error 2", conn.getErrorStream().toString());
+                //postDataParams.getString("status");
+                return postDataParams;
+                // }
+            }
+        } catch (Exception e) {
+            String error = new String("Exception: " + e.getMessage());
+            Log.e("Connection error", "Exception" + e.getMessage());
+            //          Log.e("Connection Error 2", conn.getErrorStream().toString());
 //            try {
 //                postDataParams = new JSONObject(error);
 //            }catch (JSONException u){
 //                Log.e("JSON Parser", "Error parsing data " + u.toString());
 //            }
-       // }
+        }
 
 
         return postDataParams;
 
 
     }
+
     public String getPostDataString(JSONObject params) throws Exception {
 
         StringBuilder result = new StringBuilder();

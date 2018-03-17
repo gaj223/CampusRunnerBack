@@ -8,6 +8,9 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // array for JSON response
 $response = array();
+$postdata = file_get_contents("php://input");  
+$json = json_decode($postdata, true);
+echo $json;
 
 
 

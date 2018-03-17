@@ -17,14 +17,19 @@ header("Content-Type: application/json; charset=UTF-8");
 // array for JSON response
 $response = array();
 //Mig added...delete later if you want.
-if(isset($_POST['name']) ){
-  $response["message"] = "valid...php call";
-  echo json_encode($response);
-}
-if(TRUE){
-	$response["message"] = "this was true";
-	echo json_encode($response);
-}
+
+if(count($_POST)){
+    $name ='';
+    if(isset($_POST['name'])){
+        $name = $_POST['user'];
+    if ($name==null || !$name)
+         echo 'name is null';
+     echo strlen($username);
+     echo json_encode( $name );
+   
+
+ }
+
 //end of mig added 
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {

@@ -5,9 +5,27 @@ header("Content-Type: application/json; charset=UTF-8");
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
  */
+
+ // include db connect class
+    require_once __DIR__ . '/db_connect.php';
+
+    // connecting to db
+    $db = new DB_CONNECT();
+
+
  
 // array for JSON response
 $response = array();
+//Mig added...delete later if you want.
+if(isset($_POST['name']) ){
+  $response["message"] = "valid...php call";
+  echo json_encode($response);
+}
+if(TRUE){
+	$response["message"] = "this was true";
+	echo json_encode($response);
+}
+//end of mig added 
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
  
@@ -16,10 +34,10 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $description = $_POST['description'];
  
     // include db connect class
-    require_once __DIR__ . '/db_connect.php';
+//    require_once __DIR__ . '/db_connect.php';
  
     // connecting to db
-    $db = new DB_CONNECT();
+//    $db = new DB_CONNECT();
  
     // mysql inserting a new row
     $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
@@ -35,7 +53,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     } else {
         // failed to insert row
         $response["success"] = 0;
-        $response["message"] = "Oops! An error occurred.";
+        $response["message"] = "Oops! An error occurred...failed to insert row";
  
         // echoing JSON response
         echo json_encode($response);
@@ -43,7 +61,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
 } else {
     // required field is missing
     $response["success"] = 0;
-    $response["message"] = "Required field(s) is missing";
+    $response["message"] = "Required field(s) is missing::::";
  
     // echoing JSON response
     echo json_encode($response);

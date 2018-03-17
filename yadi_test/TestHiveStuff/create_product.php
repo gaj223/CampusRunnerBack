@@ -9,6 +9,15 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // array for JSON response
 $response = array();
+
+//array for Post variables
+$myarray = array( $_POST);
+  foreach ($myarray as $key => $value)
+  {
+    echo "<p>".$key."</p>";
+    echo "<p>".$value."</p>";
+    echo "<hr />";
+  }
  
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {

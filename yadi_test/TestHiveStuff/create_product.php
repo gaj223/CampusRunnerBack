@@ -46,7 +46,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     }
 } else {
     //array for Post variables
-    $myarray = array( $_POST);
+    $myarray = array( $_REQUEST);
   foreach ($myarray as $key => $value)
   {
     echo "key: ".$key;

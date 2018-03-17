@@ -51,6 +51,6 @@ class DB_CONNECT {
     }
  
 }
-$connection = new DB_CONNECT();
+// $connection = new DB_CONNECT();
  
 ?>

@@ -10,14 +10,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $response = array();
 
 
-//array for Post variables
-$myarray = array( $_POST);
-  foreach ($myarray as $key => $value)
-  {
-    echo "key: ".$key;
-    echo "value: ".$value;
-    echo "";
-  }
+
  
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
@@ -52,6 +45,14 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
         echo json_encode($response);
     }
 } else {
+    //array for Post variables
+    $myarray = array( $_POST);
+  foreach ($myarray as $key => $value)
+  {
+    echo "key: ".$key;
+    echo "value: ".$value;
+    $response[$key] = $value;
+  }
     // required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";

@@ -14,9 +14,9 @@ $response = array();
 $myarray = array( $_POST);
   foreach ($myarray as $key => $value)
   {
-    echo "<p>".$key."</p>";
-    echo "<p>".$value."</p>";
-    echo "<hr />";
+    echo "key: ".$key;
+    echo "value: ".$value;
+    echo "";
   }
  
 // check for required fields

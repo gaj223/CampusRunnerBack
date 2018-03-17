@@ -17,7 +17,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // array for JSON response
 $response = array();
 //Mig added...delete later if you want.
-
+/*
 if(count($_POST)){
     $name ='';
     if(isset($_POST['name'])){
@@ -29,7 +29,7 @@ if(count($_POST)){
    
 
  }
-
+*/
 //end of mig added 
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {

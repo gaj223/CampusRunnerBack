@@ -12,8 +12,10 @@ $obj = json_decode($json);
 //echo $test;
 echo "get: \n";
 var_dump($obj);
-
-
+echo "print: ";
+foreach ($obj as $key => $value) {
+    echo "$key => $value\n";
+}
  
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {

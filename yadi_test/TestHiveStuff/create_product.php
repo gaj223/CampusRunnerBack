@@ -4,7 +4,7 @@
 //session_start();
 
 header("Access-Control-Allow-Origin: *");
-//header("Content-Type: application/json; charset=UTF-8");
+//fheader("Content-Type: application/json; charset=UTF-8");
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
@@ -14,6 +14,7 @@ header("Access-Control-Allow-Origin: *");
 $response = array();
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
+var_dump($json);
 //echo $test;
 echo "get: \n";
 var_dump($obj);

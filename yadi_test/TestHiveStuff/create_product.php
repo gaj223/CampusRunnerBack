@@ -34,7 +34,7 @@ require 'config.php';
 
  echo"before query";
     // connecting to db
-    $db = new DB_CONNECT();
+    //$db = new DB_CONNECT();
  
     // mysql inserting a new row
     $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");

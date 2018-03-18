@@ -17,7 +17,7 @@ var_dump($obj);
 echo "print: ";
 foreach ($obj as $key => $value) {
 
-    //echo "$key => $value\n";
+    echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  
@@ -37,6 +37,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
  
     // check if row inserted or not
+    echo "query\n";
     var_dump(result);
     if ($result) {
         // successfully inserted into database

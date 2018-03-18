@@ -14,7 +14,9 @@ echo "get: \n";
 var_dump($obj);
 echo "print: ";
 foreach ($obj as $key => $value) {
+
     echo "$key => $value\n";
+    $_POST[$key] = $value;
 }
  
 // check for required fields

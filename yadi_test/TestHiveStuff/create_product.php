@@ -1,10 +1,6 @@
 <?php
-// include db connect class
-//require_once __DIR__ . '/db_connect.php';
-//session_start();
-
+//needed to be able to pass data between different sources
 header("Access-Control-Allow-Origin: *");
-//fheader("Content-Type: application/json; charset=UTF-8");
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
@@ -12,37 +8,33 @@ header("Access-Control-Allow-Origin: *");
  
 // array for JSON response
 $response = array();
+//get the data that was sent
 $json = file_get_contents('php://input');
+//decode it
 $obj = json_decode($json);
-var_dump($json);
-//echo $test;
-echo "get: \n";
-var_dump($obj);
-echo "print: ";
-foreach ($obj as $key => $value) {
 
-    echo "$key => $value\n";
+//place in $_POST array, kinda cheating but whatever
+foreach ($obj as $key => $value) {
+    //echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
-require 'config.php'; 
+    //made a new config file could not get object oriented one working
+    require 'config.php';
+    //set variables to send to query 
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
  
-
- echo"before query";
     // connecting to db
     //$db = new DB_CONNECT();
- 
+
     // mysql inserting a new row
     $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
  
     // check if row inserted or not
-    echo "after query\n";
-    var_dump($result);
     if ($result) {
         // successfully inserted into database
         $response["success"] = 1;
@@ -59,12 +51,10 @@ require 'config.php';
         echo json_encode($response);
     }
 } else {
-    //array for Post variables
     
 // required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";
- 
     // echoing JSON response
     echo json_encode($response);
 }

@@ -10,12 +10,14 @@ class DB_CONNECT {
     // constructor
     function __construct() {
         // connecting to database
+        echo "opening connection";
         $this->connect();
     }
  
     // destructor
     function __destruct() {
         // closing db connection
+        echo"closed connection";
         $this->close();
     }
  

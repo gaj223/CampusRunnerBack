@@ -7,16 +7,11 @@ header("Content-Type: application/json; charset=UTF-8");
  */
  
 // array for JSON response
-$obj = json_decode($_GET["x"], false);
-$obj2 = json_decode($_POST["x"], false);
+$json = file_get_contents('php://input');
+$obj = json_decode($json);
 //echo $test;
 echo "get: \n";
 var_dump($obj);
-echo "post: \n";
-var_dump($obj2);
-foreach ($files as $key => $value) {
-    echo $key." ".$value;
-}
 
 
  
@@ -54,14 +49,8 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     }
 } else {
     //array for Post variables
-    $myarray = array( $_REQUEST);
-  foreach ($myarray as $key => $value)
-  {
-    echo "key: ".$key;
-    echo "value: ".$value;
-    $response[$key] = $value;
-  }
-    // required field is missing
+    
+// required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";
  

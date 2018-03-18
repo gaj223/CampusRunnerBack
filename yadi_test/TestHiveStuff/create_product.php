@@ -1,4 +1,6 @@
 <?php
+// include db connect class
+require_once __DIR__ . '/db_connect.php';
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 /*
@@ -15,7 +17,7 @@ var_dump($obj);
 echo "print: ";
 foreach ($obj as $key => $value) {
 
-    echo "$key => $value\n";
+    //echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  
@@ -26,14 +28,13 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $price = $_POST['price'];
     $description = $_POST['description'];
  
-    // include db connect class
-    require_once __DIR__ . '/db_connect.php';
+
  
     // connecting to db
     $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
+    $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
  
     // check if row inserted or not
     if ($result) {

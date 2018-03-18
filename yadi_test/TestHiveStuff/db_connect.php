@@ -1,5 +1,6 @@
 
 <?php
+require_once __DIR__ . '/db_config.php';
  
 /**
  * A class file to connect to database
@@ -23,16 +24,20 @@ class DB_CONNECT {
      */
     function connect() {
         // import database connection variables
-        require_once __DIR__ . '/db_config.php';
- 
+
+
         // Connecting to mysql database
-            $con = mysqli_connect("13.59.142.19","yadi","abc123","yadiTest");
+        $con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+
+ 
+            // $con = mysqli_connect("13.59.142.19","yadi","abc123","yadiTest");
      
-    if (mysqli_connect_errno())
-    {
-       echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
-    else{echo"Successful connection";}
+   
+        if($con->connect_error){
+            die("Connection failed: " . $con->connect_error);
+    
+        }
+       else{echo"Successful connection";}
  
         // Selecing database
         // $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());

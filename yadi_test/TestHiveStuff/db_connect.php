@@ -34,7 +34,7 @@ class DB_CONNECT {
      
    
         if($con->connect_error){
-
+            echo"failed";
             die("Connection failed: " . $con->connect_error);
     
         }

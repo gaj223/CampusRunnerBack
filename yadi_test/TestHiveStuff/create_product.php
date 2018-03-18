@@ -9,6 +9,7 @@ header("Content-Type: application/json; charset=UTF-8");
  */
  
 // array for JSON response
+$response = array();
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
 //echo $test;
@@ -38,7 +39,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
  
     // check if row inserted or not
     echo "query\n";
-    var_dump(result);
+    var_dump($result);
     if ($result) {
         // successfully inserted into database
         $response["success"] = 1;

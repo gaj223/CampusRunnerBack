@@ -44,7 +44,7 @@ class DB_CONNECT {
         // $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
  
         // returing connection cursor
-        var_dump($con);
+        //var_dump($con);
         return $con;
     }
  

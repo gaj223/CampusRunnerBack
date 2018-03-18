@@ -37,6 +37,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
  
     // check if row inserted or not
+    var_dump(result);
     if ($result) {
         // successfully inserted into database
         $response["success"] = 1;

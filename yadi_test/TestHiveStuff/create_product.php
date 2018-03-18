@@ -2,7 +2,7 @@
 // include db connect class
 //require_once __DIR__ . '/db_connect.php';
 //session_start();
-require 'config.php';
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 /*
@@ -26,7 +26,7 @@ foreach ($obj as $key => $value) {
  
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
- 
+require 'config.php'; 
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];

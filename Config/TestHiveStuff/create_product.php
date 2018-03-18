@@ -1,21 +1,26 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+//header("Content-Type: application/json; charset=UTF-8");
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
  */
-
- // include db connect class
-    require_once __DIR__ . '/db_connect.php';
-
-    // connecting to db
-    $db = new DB_CONNECT();
-
-
  
 // array for JSON response
 $response = array();
+
+$json = file_get_contents('php://input');
+var_dump($json);
+$phpObj = json_decode($json);
+var_dump($json);
+foreach ($phpObj as $key => $value) {
+    echo "echo $key => $value\n";
+    $_POST[$key] = $value;
+}
+
+
+    require 'db_config.php';
+
 //Mig added...delete later if you want.
 /*
 if(count($_POST)){
@@ -33,7 +38,7 @@ if(count($_POST)){
 //end of mig added 
 // check for required fields
 if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description'])) {
- 
+     
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
@@ -42,11 +47,11 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
 //    require_once __DIR__ . '/db_connect.php';
  
     // connecting to db
-//    $db = new DB_CONNECT();
+   //trying it out yadi way $db = new DB_CONNECT();
  
     // mysql inserting a new row
     $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
- 
+    
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database

@@ -26,7 +26,7 @@ class DB_CONNECT {
      */
     function connect() {
         // import database connection variables
-
+    echo "in connect"
 
         // Connecting to mysql database
         $con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
@@ -47,6 +47,7 @@ class DB_CONNECT {
  
         // returing connection cursor
         //var_dump($con);
+        
         return $con;
     }
  

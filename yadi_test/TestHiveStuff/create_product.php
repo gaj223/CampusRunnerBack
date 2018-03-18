@@ -1,6 +1,7 @@
 <?php
 // include db connect class
-require_once __DIR__ . '/db_connect.php';
+//require_once __DIR__ . '/db_connect.php';
+require "config.php";
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 /*
@@ -30,7 +31,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $description = $_POST['description'];
  
 
- 
+ echo"before query";
     // connecting to db
     $db = new DB_CONNECT();
  
@@ -38,7 +39,7 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
     $result = $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
  
     // check if row inserted or not
-    echo "query\n";
+    echo "after query\n";
     var_dump($result);
     if ($result) {
         // successfully inserted into database

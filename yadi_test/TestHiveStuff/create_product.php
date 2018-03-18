@@ -17,11 +17,14 @@ if ($_FILES) {
           }
         }
       }
-      echo (array_merge($files,$_POST));
+    $files=array_merge($files,$_POST);
     }
-    echo file_get_contents('php://input');
+     $test= file_get_contents('php://input');
   }
-
+echo $test;
+foreach ($files as $key => $value) {
+    echo $key." ".$value;
+}
 
 
  

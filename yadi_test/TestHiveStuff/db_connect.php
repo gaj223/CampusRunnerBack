@@ -34,15 +34,17 @@ class DB_CONNECT {
      
    
         if($con->connect_error){
+
             die("Connection failed: " . $con->connect_error);
     
         }
-       else{echo"Successful connection";}
+       //else{echo"Successful connection";}
  
         // Selecing database
         // $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
  
         // returing connection cursor
+        var_dump($con);
         return $con;
     }
  

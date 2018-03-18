@@ -7,21 +7,13 @@ header("Content-Type: application/json; charset=UTF-8");
  */
  
 // array for JSON response
-if ($_FILES) {
-      $files = array();
-      foreach ($_FILES as $name => $file) {
-        foreach ($file as $key => $value) {
-          switch ($key) {
-            case 'tmp_name': $files[$name] = $value?base64_encode(file_get_contents($value)):''; break;
-            default: $files[$name.'_'.$key] = $value;
-          }
-        }
-      }
-    $files=array_merge($files,$_POST);
-    }
-     $test= file_get_contents('php://input');
-  }
-echo $test;
+$obj = json_decode($_GET["x"], false);
+$obj2 = json_decode($_POST["x"], false);
+//echo $test;
+echo "get: \n";
+var_dump($obj);
+echo "post: \n";
+var_dump($obj2);
 foreach ($files as $key => $value) {
     echo $key." ".$value;
 }

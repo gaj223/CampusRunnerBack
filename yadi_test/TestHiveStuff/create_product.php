@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
  */
- 
+
 // array for JSON response
 $response = array();
 //get the data that was sent
@@ -15,7 +15,7 @@ $obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
 foreach ($obj as $key => $value) {
-    //echo "$key => $value\n";
+    echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  

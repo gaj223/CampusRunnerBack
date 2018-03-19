@@ -10,12 +10,13 @@ header("Access-Control-Allow-Origin: *");
 $response = array();
 //get the data that was sent
 $json = file_get_contents('php://input');
+
 //decode it
 $obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
 foreach ($obj as $key => $value) {
-    echo "$key => $value\n";
+   // echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  

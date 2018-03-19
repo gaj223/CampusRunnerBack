@@ -31,51 +31,52 @@ var_dump($_GET);
  
 // check for post data
 if (isset($_GET["pid"])) {
-    $pid = $_GET['pid'];
  echo "is set";
-    // get a product from products table
-    $result = $con->query("SELECT * FROM products WHERE pid = $pid");
+    // $pid = $_GET['pid'];
+    // // get a product from products table
+    // $result = $con->query("SELECT * FROM products WHERE pid = $pid");
  
-    if (!empty($result)) {
-        // check for empty result
-        if ($result->num_rows > 0) {
-                require 'config.php';
-                echo "in array";
-            var_dump($result);
-            $product = array();
-            $product["pid"] = $result["pid"];
-            $product["name"] = $result["name"];
-            $product["price"] = $result["price"];
-            $product["description"] = $result["description"];
-            $product["created_at"] = $result["created_at"];
-            $product["updated_at"] = $result["updated_at"];
-            // success
-            $response["success"] = 1;
+    // if (!empty($result)) {
+    //     // check for empty result
+    //     if ($result->num_rows > 0) {
+    //         require 'config.php';
+    //         echo "in array";
+    //         var_dump($result);
+    //         $product = array();
+    //         $product["pid"] = $result["pid"];
+    //         $product["name"] = $result["name"];
+    //         $product["price"] = $result["price"];
+    //         $product["description"] = $result["description"];
+    //         $product["created_at"] = $result["created_at"];
+    //         $product["updated_at"] = $result["updated_at"];
+    //         // success
+    //         $response["success"] = 1;
  
-            // user node
-            $response["product"] = array();
+    //         // user node
+    //         $response["product"] = array();
  
-            array_push($response["product"], $product);
+    //         array_push($response["product"], $product);
  
-            // echoing JSON response
-            echo json_encode($response);
-        } else {
-            // no product found
-            $response["success"] = 0;
-            $response["message"] = "No product found";
+    //         // echoing JSON response
+    //         echo json_encode($response);
+    //     } else {
+    //         // no product found
+    //         $response["success"] = 0;
+    //         $response["message"] = "No product found";
  
-            // echo no users JSON
-            echo json_encode($response);
-        }
-    } else {
-        // no product found
-        $response["success"] = 0;
-        $response["message"] = "No product found";
+    //         // echo no users JSON
+    //         echo json_encode($response);
+    //     }
+    // } else {
+    //     // no product found
+    //     $response["success"] = 0;
+    //     $response["message"] = "No product found";
  
-        // echo no users JSON
-        echo json_encode($response);
-    }
+    //     // echo no users JSON
+    //     echo json_encode($response);
+    // }
 } else {
+    echo "issue";
     // required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";

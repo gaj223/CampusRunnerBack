@@ -30,7 +30,7 @@ if ($result->num_rows() > 0) {
 //    $response["products"] = array();
 
 $row = $result->fetch_assoc();
-var_dump($row);
+var_dump($result);
  // for now
     //while ($row = $result->fetch_assoc()) {
         //var_dump($row);

@@ -16,10 +16,10 @@ require 'config.php';
  echo "made it past config";
 // get all products from products table
 // $result = $con->query("SELECT *FROM products") or die($con->error());
- $result = $con->query("SELECT *FROM products");
- echo "after query";
+ //$result = $con->query("SELECT *FROM products");
+ //echo "after query";
  //echo $con->error();
- echo "I guess no errors"
+ //echo "I guess no errors"
 
 //erase after
 // echo $result->num_rows();

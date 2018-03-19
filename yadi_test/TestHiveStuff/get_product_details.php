@@ -15,7 +15,6 @@ $response = array();
 //echo"file : \n"
 //var_dump($json);
 // echo "\n\n\nin get: \n";
-var_dump($_GET);
 //decode it
 //$obj = json_decode($json);
 
@@ -45,7 +44,6 @@ if (isset($_GET["pid"])) {
             require 'config.php';
             echo "in array";
             $row = $result->fetch_assoc();
-            var_dump($row);
             $product = array();
             $product["pid"] = $row["pid"];
             $product["name"] = $row["name"];
@@ -80,7 +78,7 @@ if (isset($_GET["pid"])) {
         echo json_encode($response);
     }
 } else {
-    echo "issue";
+ 
     // required field is missing
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";

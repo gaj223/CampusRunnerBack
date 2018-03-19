@@ -37,7 +37,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['abc123']) &
     //$db = new DB_CONNECT();
 
     // mysql inserting a new row
-    $result = $con->query("INSERT INTO users(name, email, abc123, user_role, street_address, phone_number, password) VALUES('$name', '$email', '$description','$user_role','$street_address','$phone_number','$password')");
+    $result = $con->query("INSERT INTO users(name, email, abc123, user_role, street_address, phone_number, password) VALUES('$name', '$email', '$abc123','$user_role','$street_address','$phone_number','$password')");
  
     // check if row inserted or not
     if ($result) {

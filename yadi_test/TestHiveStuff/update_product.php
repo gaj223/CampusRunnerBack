@@ -13,7 +13,7 @@ $response = array();
 $response = array();
 //get the data that was sent
 $json = file_get_contents('php://input');
-
+var_dump($json);
 //decode it
 $obj = json_decode($json);
 

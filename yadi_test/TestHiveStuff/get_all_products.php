@@ -29,7 +29,8 @@ if ($result->num_rows() > 0) {
 //     //looping through all results products node
 //    $response["products"] = array();
 
-//var_dump($result);
+$row = $result->fetch_assoc();
+var_dump($row);
  // for now
     //while ($row = $result->fetch_assoc()) {
         //var_dump($row);

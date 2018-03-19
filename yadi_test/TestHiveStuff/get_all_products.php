@@ -1,23 +1,26 @@
 <?php
-//header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 echo "hello";
 /*
  * Following code will list all the products
  */
  
 // array for JSON response
-// $response = array();
+ $response = array();
  
-// // include db connect class
+// include db connect class
 // //require_once __DIR__ . '/db_connect.php';
  
 // // connecting to db
-// //$db = new DB_CONNECT();
-// //  require 'config.php';
- 
-// // get all products from products table
+require 'config.php';
+ echo "made it past config";
+// get all products from products table
 // $result = $con->query("SELECT *FROM products") or die($con->error());
- 
+ $result = $con->query("SELECT *FROM products");
+ echo "after query";
+ echo "$con->error()";
+
+
 // // check for empty result
 // if ($result->num_rows() > 0) {
 //     // looping through all results

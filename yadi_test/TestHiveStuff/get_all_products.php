@@ -21,10 +21,11 @@ if(!$result = $con->query("SELECT * FROM products")){
 	echo "there was an error with query";
 }
 echo "after query";
-//var_dump($result);
+//svar_dump($result);
 //erase after
 $number = $result->num_rows();
  echo "number: $number";
+ echo "not printing";
 // check for empty result
 if ($result->num_rows() > 0) {
 //     echo "in num row ";
@@ -53,7 +54,7 @@ var_dump($result);
     // echoing JSON response
     echo json_encode($response);
 } else {
-
+echo "fail";
     // no products found
     $response["success"] = 0;
     $response["message"] = "No products found";

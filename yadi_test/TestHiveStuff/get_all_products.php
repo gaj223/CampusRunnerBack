@@ -24,18 +24,17 @@ echo "after query";
 //svar_dump($result);
 //erase after
 var_dump($result);
-$number = $result->num_rows();
-echo json_encode($number);
+$number = $result->num_rows;
 var_dump($number);
  echo "not printing";
 // check for empty result
-if ($result->num_rows() > 0) {
+if ($result->num_rows > 0) {
 //     echo "in num row ";
 //     //looping through all results products node
 //    $response["products"] = array();
 echo "in rows if";
 $row = $result->fetch_assoc();
-var_dump($result);
+var_dump($row);
  // for now
     //while ($row = $result->fetch_assoc()) {
         //var_dump($row);

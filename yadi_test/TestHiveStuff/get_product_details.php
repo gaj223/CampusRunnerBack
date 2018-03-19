@@ -13,10 +13,10 @@ $response = array();
 //$json = file_get_contents('php://input');
 //echo"file : \n"
 //var_dump($json);
-echo "\n\n\nin get: \n";
-var_dump($_GET);
+// echo "\n\n\nin get: \n";
+// var_dump($_GET);
 //decode it
-$obj = json_decode($json);
+//$obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
 //foreach ($obj as $key => $value) {

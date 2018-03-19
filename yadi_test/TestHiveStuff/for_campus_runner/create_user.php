@@ -25,21 +25,21 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['abc123']) &
     echo "in if";
     //made a new config file could not get object oriented one working
     require 'config.php';
-    //set variables to send to query 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $abc123 = $_POST['abc123'];
-    $user_role = $_POST['user_role'];
-    $street_address = $_POST['street_address'];
-    $phone_number = $_POST['phone_number'];
-    $password = $_POST['password'];
+    // //set variables to send to query 
+    // $name = $_POST['name'];
+    // $email = $_POST['email'];
+    // $abc123 = $_POST['abc123'];
+    // $user_role = $_POST['user_role'];
+    // $street_address = $_POST['street_address'];
+    // $phone_number = $_POST['phone_number'];
+    // $password = $_POST['password'];
     
-    // connecting to db
-    //$db = new DB_CONNECT();
+    // // connecting to db
+    // //$db = new DB_CONNECT();
 
-    // mysql inserting a new row
-    $result = $con->query("INSERT INTO users(name, email, abc123, user_role, street_address, phone_number, password) VALUES('$name', '$email', '$abc123','$user_role','$street_address','$phone_number','$password')");
-    echo "after query";
+    // // mysql inserting a new row
+    // $result = $con->query("INSERT INTO users(name, email, abc123, user_role, street_address, phone_number, password) VALUES('$name', '$email', '$abc123','$user_role','$street_address','$phone_number','$password')");
+    // echo "after query";
  
     // check if row inserted or not
     // if ($result) {

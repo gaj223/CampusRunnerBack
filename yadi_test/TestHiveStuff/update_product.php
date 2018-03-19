@@ -9,8 +9,7 @@
 // array for JSON response
 $response = array();
 
-// array for JSON response
-$response = array();
+
 //get the data that was sent
 $json = file_get_contents('php://input');
 //var_dump($json);

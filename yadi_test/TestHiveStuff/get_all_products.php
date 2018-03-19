@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 require 'config.php';
-echo "after config";
+
 /*
  * Following code will list all the products
  */
@@ -28,7 +28,7 @@ if ($result->num_rows() > 0) {
 //     echo "in num row ";
 //     //looping through all results products node
 //    $response["products"] = array();
-
+echo "in rows if";
 $row = $result->fetch_assoc();
 var_dump($result);
  // for now

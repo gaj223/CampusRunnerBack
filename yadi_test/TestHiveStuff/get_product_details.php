@@ -17,8 +17,8 @@ $obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
 foreach ($obj as $key => $value) {
-    echo "$key => $value\n";
-    $_POST[$key] = $value;
+    //echo "$key => $value\n";
+    $_GET[$key] = $value;
 } 
 // include db connect class
 //require_once __DIR__ . '/db_connect.php';
@@ -31,11 +31,11 @@ if (isset($_GET["pid"])) {
     $pid = $_GET['pid'];
  
     // get a product from products table
-    $result = mysql_query("SELECT *FROM products WHERE pid = $pid");
+    $result = $con->query("SELECT *FROM products WHERE pid = $pid");
  
     if (!empty($result)) {
         // check for empty result
-        if (mysql_num_rows($result) > 0) {
+        if ($result->num_rows > 0) {
                 require 'config.php';
             $result = $con->query($result);
  

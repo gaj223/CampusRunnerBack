@@ -16,7 +16,7 @@ $response = array();
   require 'config.php';
  
 // get all products from products table
-$result = $con->query("SELECT *FROM products") or die(mysql_error());
+$result = $con->query("SELECT *FROM products") or die($con->error());
  
 // check for empty result
 if ($result->num_rows() > 0) {

@@ -23,7 +23,8 @@ if(!$result = $con->query("SELECT * FROM products")){
 echo "after query";
 var_dump($result);
 //erase after
- echo $result->num_rows();
+$number = $result->num_rows();
+ echo "number: $number";
 // check for empty result
 if ($result->num_rows() > 0) {
 //     echo "in num row ";

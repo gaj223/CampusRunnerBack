@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 echo "hello";
 /*
  * Following code will list all the products
@@ -48,5 +48,5 @@ echo "hello";
  
 //     // echo no users JSON
 //     echo json_encode($response);
-}
+//}
 ?>

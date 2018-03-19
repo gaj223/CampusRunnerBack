@@ -21,7 +21,7 @@ if(!$result = $con->query("SELECT * FROM products")){
 	echo "there was an error with query";
 }
 echo "after query";
-var_dump($result);
+//var_dump($result);
 //erase after
 $number = $result->num_rows();
  echo "number: $number";

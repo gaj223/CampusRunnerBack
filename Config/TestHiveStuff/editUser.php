@@ -15,16 +15,18 @@
 	$phpObj = json_decode($json);
 	var_dump($json);
 	foreach ($phpObj as $key => $value) {
-    	echo "echo $key => $value\n";
-    	$_POST[$key] = $value;
+    	    echo "echo $key => $value\n";
+    	    $_POST[$key] = $value;
 	}
 
 
-// check for required fields
-	if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['street_address']) 
-    	&& isset($_POST['phone_number']) && isset($_POST['password'] ) && isset($_POST['user_role'] ) ) {
+// check for required fields, the below should be uncom for final test
+//	if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['street_address']) 
+//   	&& isset($_POST['phone_number']) && isset($_POST['password'] ) && isset($_POST['user_role'] ) ) {
+	 if (isset($_POST['email']) && isset($_POST['name']) ) ) {
 
-    	    $email     = $_POST['eamil'];
+    	   // $email     = $_POST['eamil'];
+    	    $email     ="new@gmail.com" ;
 	    $name      = $_POST['name'];
 	    $streetAdd = $_POST['street_address'];
     	    $phoNum    = $_POST['phone_number'];

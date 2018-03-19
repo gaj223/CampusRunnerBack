@@ -16,7 +16,9 @@
 	$dbname     = "migsTest";
 	$con = new mysqli($servername, $username, $password, $dbname);
 	if($con->connect_error){
-		echo"fail,connection failed in $dbname";
+		echo"fail,connection failed in..";
 	  die("Connection failed: " . $con->connect_error);
-	}
+	}else{
+            echo"connection is good";
+        }
 ?>

@@ -56,7 +56,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['abc123']) &
  
     //     // echoing JSON response
     //     echo json_encode($response);
-    }
+    //}
 } else {
     
 // required field is missing

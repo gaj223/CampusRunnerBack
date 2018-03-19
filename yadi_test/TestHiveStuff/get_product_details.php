@@ -14,7 +14,7 @@ $response = array();
 //echo"file : \n"
 //var_dump($json);
 // echo "\n\n\nin get: \n";
-// var_dump($_GET);
+var_dump($_GET);
 //decode it
 //$obj = json_decode($json);
 
@@ -34,14 +34,14 @@ if (isset($_GET["pid"])) {
     $pid = $_GET['pid'];
  
     // get a product from products table
-    $result = $con->query("SELECT *FROM products WHERE pid = $pid");
+    $result = $con->query("SELECT * FROM products WHERE pid = $pid");
  
     if (!empty($result)) {
         // check for empty result
         if ($result->num_rows > 0) {
                 require 'config.php';
-            $result = $con->query($result);
- 
+                echo "in array";
+            var_dump($result);
             $product = array();
             $product["pid"] = $result["pid"];
             $product["name"] = $result["name"];

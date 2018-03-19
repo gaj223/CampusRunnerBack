@@ -1,5 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+require 'config.php';
+echo "after config";
 /*
  * Following code will list all the products
  */
@@ -11,7 +13,7 @@ header("Access-Control-Allow-Origin: *");
 // //require_once __DIR__ . '/db_connect.php';
  
 // // connecting to db
-require 'config.php';
+
 
 // get all products from products table
 if(!$result = $con->query("SELECT * FROM products")){
@@ -22,7 +24,7 @@ if(!$result = $con->query("SELECT * FROM products")){
 //erase after
 // echo $result->num_rows();
 // check for empty result
-// if ($result->num_rows() > 0) {
+if ($result->num_rows() > 0) {
 //     echo "in num row ";
 //     //looping through all results products node
 //    $response["products"] = array();

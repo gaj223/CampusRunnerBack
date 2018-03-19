@@ -14,6 +14,7 @@ echo "hello";
 // // connecting to db
 require 'config.php';
  echo "made it past config";
+
 // get all products from products table
 // $result = $con->query("SELECT *FROM products") or die($con->error());
  //$result = $con->query("SELECT *FROM products");
@@ -30,9 +31,14 @@ require 'config.php';
    // $response["products"] = array();
  //}
 echo "\nCon var: \n";
+//var_dump($con);
+if(!$result = $con->query("SELECT * FROM products")){
+   // die('There was an error running the query [' . $con->error . ']');
+	echo "there was an error with query";
+}
 var_dump($con);
-echo"Result dump: \n"
-var_dump($result);
+echo"\n\n\nResult dump: \n"
+//var_dump($result);
  // fot now
 //     while ($row = $result->fetch_assoc() {
 //         // temp user array

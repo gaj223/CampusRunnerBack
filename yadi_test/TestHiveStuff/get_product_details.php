@@ -10,9 +10,9 @@ header("Access-Control-Allow-Origin: *");
 // array for JSON response
 $response = array();
 //get the data that was sent
-$json = file_get_contents('php://input');
-echo"file : \n"
-var_dump($json);
+//$json = file_get_contents('php://input');
+//echo"file : \n"
+//var_dump($json);
 echo "\n\n\nin get: \n";
 var_dump($_GET);
 //decode it

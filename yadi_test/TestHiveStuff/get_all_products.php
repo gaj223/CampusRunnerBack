@@ -1,6 +1,6 @@
 <?php
- header("Access-Control-Allow-Origin: *");
-
+header("Access-Control-Allow-Origin: *");
+echo "hello";
 /*
  * Following code will list all the products
  */
@@ -13,7 +13,7 @@ $response = array();
  
 // connecting to db
 //$db = new DB_CONNECT();
-  require 'config.php';
+//  require 'config.php';
  
 // get all products from products table
 $result = $con->query("SELECT *FROM products") or die($con->error());

@@ -1,6 +1,5 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-echo "hello";
 /*
  * Following code will list all the products
  */
@@ -13,7 +12,6 @@ echo "hello";
  
 // // connecting to db
 require 'config.php';
- echo "made it past config";
 
 // get all products from products table
 if(!$result = $con->query("SELECT * FROM products")){

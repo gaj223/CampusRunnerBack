@@ -41,8 +41,6 @@ if (isset($_GET["pid"])) {
     if (!empty($result)) {
         // check for empty result
         if ($result->num_rows > 0) {
-            require 'config.php';
-            echo "in array";
             $row = $result->fetch_assoc();
             $product = array();
             $product["pid"] = $row["pid"];

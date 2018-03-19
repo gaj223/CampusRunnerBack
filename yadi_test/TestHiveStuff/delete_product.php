@@ -17,7 +17,7 @@ $obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
 foreach ($obj as $key => $value) {
-    echo "$key => $value\n";
+    //echo "$key => $value\n";
     $_POST[$key] = $value;
 }
  

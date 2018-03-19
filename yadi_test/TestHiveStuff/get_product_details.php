@@ -44,14 +44,15 @@ if (isset($_GET["pid"])) {
         if ($result->num_rows > 0) {
             require 'config.php';
             echo "in array";
-            var_dump($result);
+            $row = $result->fetch_assoc();
+            var_dump($row);
             $product = array();
-            $product["pid"] = $result["pid"];
-            $product["name"] = $result["name"];
-            $product["price"] = $result["price"];
-            $product["description"] = $result["description"];
-            $product["created_at"] = $result["created_at"];
-            $product["updated_at"] = $result["updated_at"];
+            $product["pid"] = $row["pid"];
+            $product["name"] = $row["name"];
+            $product["price"] = $row["price"];
+            $product["description"] = $row["description"];
+            $product["created_at"] = $row["created_at"];
+            $product["updated_at"] = $row["updated_at"];
             // success
             $response["success"] = 1;
  

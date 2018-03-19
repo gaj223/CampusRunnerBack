@@ -23,6 +23,7 @@ if(!$result = $con->query("SELECT * FROM products")){
 echo "after query";
 //svar_dump($result);
 //erase after
+var_dump($result);
 $number = $result->num_rows();
 var_dump($number);
  echo "not printing";

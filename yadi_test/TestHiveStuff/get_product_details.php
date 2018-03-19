@@ -19,10 +19,10 @@ var_dump($_GET);
 $obj = json_decode($json);
 
 //place in $_POST array, kinda cheating but whatever
-foreach ($obj as $key => $value) {
-    //echo "$key => $value\n";
-    $_GET[$key] = $value;
-} 
+//foreach ($obj as $key => $value) {
+//     //echo "$key => $value\n";
+//     $_GET[$key] = $value;
+// } 
 // include db connect class
 //require_once __DIR__ . '/db_connect.php';
  

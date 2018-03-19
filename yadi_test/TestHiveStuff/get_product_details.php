@@ -35,7 +35,7 @@ if (isset($_GET["pid"])) {
      $pid = $_GET['pid'];
     // // get a product from products table
      //turn to int
-     intval($pid);
+     //intval($pid);
      $result = $con->query("SELECT * FROM products WHERE pid = $pid");
  echo "after query";
  

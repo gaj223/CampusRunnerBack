@@ -20,7 +20,7 @@ if(!$result = $con->query("SELECT * FROM products")){
    // die('There was an error running the query [' . $con->error . ']');
 	echo "there was an error with query";
 }
-
+echo "after query";
 //erase after
 // echo $result->num_rows();
 // check for empty result

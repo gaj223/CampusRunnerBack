@@ -23,13 +23,14 @@ if(!$result = $con->query("SELECT * FROM products")){
 // echo $result->num_rows();
 // check for empty result
 if ($result->num_rows() > 0) {
+    echo "in num row ";
     //looping through all results products node
    $response["products"] = array();
 
 //var_dump($result);
  // for now
-    while ($row = $result->fetch_assoc()) {
-        var_dump($row);
+    //while ($row = $result->fetch_assoc()) {
+        //var_dump($row);
         // temp user array
         // $product = array();
         // $product["pid"] = $row["pid"];
@@ -40,7 +41,7 @@ if ($result->num_rows() > 0) {
  
         // // push single product into final response array
         // array_push($response["products"], $product);
-    }
+    //}
     // success
     $response["success"] = 1;
  

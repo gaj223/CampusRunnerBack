@@ -1,6 +1,7 @@
 
 <?php
 header("Access-Control-Allow-Origin: *");
+require 'config.php';
  
 /*
  * Following code will get single product details

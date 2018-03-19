@@ -1,6 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 //header("Content-Type: application/json; charset=UTF-8");
+require 'db_config.php';
 /*
  * Following code will create a new product row
  * All product details are read from HTTP Post Request
@@ -17,9 +18,6 @@ foreach ($phpObj as $key => $value) {
     echo "echo $key => $value\n";
     $_POST[$key] = $value;
 }
-
-
-    require 'db_config.php';
 
 //Mig added...delete later if you want.
 /*
@@ -50,8 +48,12 @@ if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description
    //trying it out yadi way $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
+//    $result = mysql_query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
     
+    //$result= $con->query("INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
+    
+    $result = mysqli_query ($con,"INSERT INTO products(name, price, description) VALUES('$name', '$price', '$description')");
+
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database

@@ -22,10 +22,10 @@ if(!$result = $con->query("SELECT * FROM products")){
 //erase after
 // echo $result->num_rows();
 // check for empty result
-if ($result->num_rows() > 0) {
-    echo "in num row ";
-    //looping through all results products node
-   $response["products"] = array();
+// if ($result->num_rows() > 0) {
+//     echo "in num row ";
+//     //looping through all results products node
+//    $response["products"] = array();
 
 //var_dump($result);
  // for now

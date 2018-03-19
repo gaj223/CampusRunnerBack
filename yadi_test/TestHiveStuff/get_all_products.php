@@ -25,6 +25,7 @@ echo "after query";
 //erase after
 var_dump($result);
 $number = $result->num_rows();
+echo json_encode($number);
 var_dump($number);
  echo "not printing";
 // check for empty result

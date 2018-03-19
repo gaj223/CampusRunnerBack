@@ -18,17 +18,17 @@ require 'config.php';
 // $result = $con->query("SELECT *FROM products") or die($con->error());
  $result = $con->query("SELECT *FROM products");
  echo "after query";
- echo $con->error();
+ //echo $con->error();
  echo "I guess no errors"
 
 //erase after
- echo $result->num_rows();
+// echo $result->num_rows();
 // check for empty result
-if ($result->num_rows() > 0) {
+//if ($result->num_rows() > 0) {
     // looping through all results
     // products node
-    $response["products"] = array();
- }
+   // $response["products"] = array();
+ //}
 echo "\nCon var: \n";
 var_dump($con);
 echo"Result dump: \n"

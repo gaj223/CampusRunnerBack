@@ -32,7 +32,7 @@ var_dump($_GET);
 // check for post data
 if (isset($_GET["pid"])) {
     $pid = $_GET['pid'];
- 
+ echo "is set";
     // get a product from products table
     $result = $con->query("SELECT * FROM products WHERE pid = $pid");
  

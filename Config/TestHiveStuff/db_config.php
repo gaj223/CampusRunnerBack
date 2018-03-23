@@ -13,7 +13,7 @@
 $servername = "13.59.142.19";
 $username = "migs";
 $password = "abc123";
-$dbname = "yadiTest";
+$dbname = "migsTest";
 $con = new mysqli($servername, $username, $password, $dbname);
 if($con->connect_error){
 	echo"fail";

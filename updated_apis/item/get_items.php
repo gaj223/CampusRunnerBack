@@ -10,7 +10,7 @@ require '../config/config.php';
  
 // array for JSON response
 $response = array();
-var_dump($_GET);
+
  
 // check for post data
 if (isset($_GET["businessId"])) {

@@ -4,7 +4,7 @@ $username = "yadi";
 $password = "abc123";
 $dbname = "yadiTest";
 global $con;
-echo"echo in here";
+
 $con = new mysqli($servername, $username, $password, $dbname);
 if($con->connect_error){
 	echo"fail";

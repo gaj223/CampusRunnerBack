@@ -10,7 +10,7 @@ require '../config/config.php';
  
 // array for JSON response
 $response = array();
-
+var_dump($_GET);
  
 // check for post data
 if (isset($_GET["businessId"])) {
@@ -36,7 +36,7 @@ if (isset($_GET["businessId"])) {
                 //push item into response array
                 array_push($response["items"], $item);
             }
-]
+
             // success
             $response["success"] = 1;
  

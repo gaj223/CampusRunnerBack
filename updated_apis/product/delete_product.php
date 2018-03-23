@@ -1,4 +1,3 @@
-
 <?php
  //needed to be able to pass data between different sources
 header("Access-Control-Allow-Origin: *");

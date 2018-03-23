@@ -12,8 +12,6 @@ $received_data = parseData();
 if(checkData($received_data) < 0){
 	sendError("Required fields missing");
 }
-echo "parsed data";
-echo "<br>";
 
 initialCreate($received_data, $con);
 function parseData(){
@@ -84,20 +82,11 @@ function addItemInfo($con,$last_id, $data){
 	$order["buyerNote"] = $data["buyerNote"];
 	$order["buyerLocation"] = $data["buyerLocation"];
 
-	var_dump($data["itemList"] );
-	echo"<br><br>";
-	// $size = count($data["itemList"]);
-	// for($i =0; $i< $size; $i++){
-	// 	$itemId = $data["itemList"][i]["id"];
-	// 	echo "id = $itemId";
-	// }
-	//get items ordered
+
 	$order["itemList"] = array();
-	//$order->itemList = array();
+	
 	$item = new stdclass();
 	foreach($data["itemList"] as $it){
-		// echo "item: $item["id"]";
-		//  echo "q: $item["quantity"]";
 		$itemId = $it->id;
 		$quantity= $it->quantity;
 		if(!$addItems = $con->query("INSERT INTO order_item (orderId, itemId, quantity) VALUES($last_id, $itemId, $quantity);")){

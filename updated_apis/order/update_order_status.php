@@ -26,7 +26,7 @@ foreach ($obj as $key => $value) {
  
 // check for required fields
 if (isset($_POST['orderId'])) {
-    require 'config.php';
+    require '../config/config.php';
 
     $orderId = $_POST['orderId'];
     $runnerId = $_POST['runnerId'];
@@ -37,14 +37,18 @@ if (isset($_POST['orderId'])) {
  	case 'pending':
  		//get format later
  		$time_started = date(h:m);
+        $result = $con->query("UPDATE orders SET status = '$status',
+            time_started ='$time_started' WHERE orderId ="1";");
  		break;
  	case 'complete'
 	 	$time_completed = date(h:m);
-	 	$result = $con->query("UPDATE orders SET status = 'completed',
+	 	$result = $con->query("UPDATE orders SET status = '$status',
 	 		time_completed ='$time_completed' WHERE orderId ="1";");
  		break;
  	case 'canceled'	
- 		"runnerId" ="null"
+ 		$runnerId ="null";
+        $result = $con->query("UPDATE orders SET status = '$status',
+            time_completed ='$time_completed' WHERE orderId ="1";");
  		break;
  	default:
  		# code...

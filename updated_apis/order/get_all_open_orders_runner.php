@@ -9,11 +9,13 @@ $response = array();
 if (isset($_GET["userId"])) {
      $orderId = $_GET['userId'];
 
-     $result = $con->query("Select orderId, status, runnerId
+     $result = $con->query("SELECT orderId, status, runnerId
 		FROM orders
+        JOIN users 
+        ON orders.runnerId = users.userId
 		WHERE
-		status = 'open'
-		AND userId !=runnerId;");
+		orders.status = 'open'
+		AND users.userId != orders.runnerId;");
 
  
     if (!empty($result)) {

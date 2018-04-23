@@ -1,4 +1,3 @@
-
 <?php
 //needed to be able to pass data between different sources
 header("Access-Control-Allow-Origin: *");
@@ -12,12 +11,11 @@ header("Access-Control-Allow-Origin: *");
 //get the data that was sent
   $json = file_get_contents('php://input');
 //decode it,akes a JSON encoded string and converts it into a PHP variable.
-  //var_dump($json);
   $phpVar = json_decode($json);
 
 //place in $_POST array, and use for testing, to ensure values
   foreach ($phpVar as $key => $value) {
-echo "$key => $value\n";
+//remove comment for testing on http bar    echo "$key => $value\n";
     $_POST[$key] = $value;
   }//Check for a valid, abc123, and password,
   // Collect username and password from the database, and comepare the
@@ -25,24 +23,31 @@ echo "$key => $value\n";
   if (isset($_POST['abc123']) && isset($_POST['password'])) {
     $abc   = $_POST['abc123'];
     $pasWd = $_POST['password'];
-    echo "your in";
+//    echo "your in";
 
     // include db connect class
-     require 'db_config.php';
-    echo"before query";
+    require_once '../config.php';
 
-    $result = $con->query("SELECT abc123,password FROM users WHERE abc123 = '$abc' AND password = '$pasWd' ");
-    echo "after query";
-    var_dump($result);
-    // sloopy way of checking to see what was return. 
-    if($result->num_rows > 0 ){
+//    $result = mysqli_query($con,"SELECT abc123,password FROM users WHERE abc123 = '$abc' AND password = '$pasWd' ");
+    $result = mysqli_query($con,"SELECT abc123,password,userId,user_role FROM users WHERE abc123 = '$abc' AND password = '$pasWd' ");
+	// sloopy way of checking to see what was return. 
+    if(mysqli_num_fields($result) > 0 ){
       //open to the default page of the user
       $response["success"] = 1;
       $response["message"] = "User Logged in";
-      // echoing JSON response,Returns the JSON representation of a value
+	//the resutls from the query
+	$queryResults = array();
+ 	$row = mysqli_fetch_assoc($result);
+        //var_dump($row);
+	$queryResults["userId"] = $row["userId"];
+	$queryResults["role"]   = $row["user_role"];
+	//var_dump($queryResults);
+	$response["user"] = array();
+	array_push( $response["user"],$queryResults);
+      // echoing JSON response,Returns the JSON representation of a value to my java file 
       echo json_encode($response);
     }
-    else{
+    if($result ==FALSE ){
       //kick back and ask to retype
       $response["success"] = 0;
       $response["message"] = "User was not logged in, or not found";
@@ -60,3 +65,4 @@ echo "$key => $value\n";
 //
 
 ?>
+

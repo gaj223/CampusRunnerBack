@@ -2,7 +2,7 @@
 $servername = "13.59.142.19";
 $username = "yadi";
 $password = "abc123";
-$dbname = "yadiTest";
+$dbname = "campus_runner";
 global $con;
 
 $con = new mysqli($servername, $username, $password, $dbname);

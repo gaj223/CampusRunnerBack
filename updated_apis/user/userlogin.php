@@ -26,7 +26,7 @@ header("Access-Control-Allow-Origin: *");
 //    echo "your in";
 
     // include db connect class
-    require_once '../config.php';
+    require_once '../config/config.php';
 
 //    $result = mysqli_query($con,"SELECT abc123,password FROM users WHERE abc123 = '$abc' AND password = '$pasWd' ");
     $result = mysqli_query($con,"SELECT abc123,password,userId,user_role FROM users WHERE abc123 = '$abc' AND password = '$pasWd' ");

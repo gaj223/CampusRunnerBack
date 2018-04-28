@@ -27,7 +27,7 @@ if (isset($_POST['email']) && isset($_POST['abc123']) && isset($_POST['password'
 
     //echo "in if";
     //made a new config file could not get object oriented one working
-    require 'config.php';
+    require '../config/config.php';
     //set variables to send to query 
     $name      = $_POST['first_name'];
     $lastName  = $_POST['last_name'];

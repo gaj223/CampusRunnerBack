@@ -29,23 +29,28 @@ if (isset($_POST['email']) && isset($_POST['abc123']) && isset($_POST['password'
     //made a new config file could not get object oriented one working
     require 'config.php';
     //set variables to send to query 
-    //$name      = $_POST['name'];
+    $name      = $_POST['first_name'];
+    $lastName  = $_POST['last_name'];
     $email     = $_POST['email'];
     $abc123    = $_POST['abc123'];
-   //$user_role = $_POST['user_role'];
+    $user_role = $_POST['user_role'];
+    $gender    = $_POST['gender'];
     //$street_address = $_POST['street_address'];
-    //$phone_number   = $_POST['phone_number'];
+    $phone_number   = $_POST['phone_number'];
     $password       = $_POST['password'];
+
+
+
     
     // connecting to db
     //$db = new DB_CONNECT();
-
-    // mysql inserting a new row
-//    $result = $con->query("INSERT INTO users(name, email, abc123, user_role, street_address, phone_number, password) 
-//                          VALUES('$name', '$email', '$abc123','$user_role','$street_address','$phone_number','$password')");
+//////////////////////////////////////////CHECK MY LOGIC PLEASE///////////////////////////////////////////////////////////////
+        $result = $con->query("INSERT INTO users(first_name, last_name ,email, abc123, user_role,  phone_number, password,gender) 
+                       VALUES('$name', '$lastName','$email', '$abc123','$user_role','$phone_number','$password','$gender')");
+   // mysql inserting a new row
     
-	$result = $con->query("INSERT INTO users(email, abc123, password) 
-                          VALUES('$email', '$abc123','$password')");
+//	$result = $con->query("INSERT INTO users(email, abc123, password) 
+//                          VALUES('$email', '$abc123','$password')");
 
 	//echo "after query";
  
